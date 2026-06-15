@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetCare | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="top-bar">
+    <div class="logo">🐾 PetCare </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-left">
+        <h1>Everything Your Pet Needs Delivered to Your Home</h1>
+        <p>Food • Toys • Accessories • Care Products</p>
+
+        <div class="hero-buttons">
+            <a href="products.html" class="btn-primary">Shop now</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <img src="https://cdn.pixabay.com/photo/2018/10/01/09/21/pets-3715733_960_720.jpg" alt="Pet Box">
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 PetCare Store | All Rights Reserved</p>
+</footer>
+
+<script>
+function addToCart(name, price, img) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ name, price, img, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + ' added to cart');
+}
+</script>
+
+</body>
+</html>

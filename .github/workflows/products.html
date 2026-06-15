@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PetCare Store | Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🐾 PetCare Store</div>
+     <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>  
+    </nav>
+</header>
+
+<section class="products-page">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+
+        <div class="card">
+            <img src="images/bow.jpeg" alt="Cute Bows">
+            <h3>Cute Bows</h3>
+            <p>$30</p>
+             <button onclick="addToCart('Cute Bows',30,'images/bow.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/bowl.jpeg" alt="Cat Bowl">
+            <h3>Cat Bowl</h3>
+            <p>$10</p>
+            <button onclick="addToCart('Cat Bowl',10,'images/bowl.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/brush.jpeg" alt="Brush">
+            <h3>Pet Brush</h3>
+            <p>$15</p>
+         <button onclick="addToCart('Pet Brush',15,'images/brush.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+        
+        <div class="card">
+            <img src="images/cap.jpeg" alt="Pet Cap">
+            <h3>Fashionable Pet Cap</h3>
+            <p>$25</p>
+        <button onclick="addToCart('Fashionable Pet Cap',25,'images/cap.jpeg')" class="cart-btn">Add to Cart</button>
+        </div> 
+        
+        <div class="card">
+            <img src="images/carrier.jpeg" alt="Pet Carrier">
+            <h3>Pet Carrier</h3>
+            <p>$30</p>
+             <button onclick="addToCart('Pet Carrier',30,'images/carrier.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/comb.jpeg" alt="Comb">
+            <h3>Pet Comb</h3>
+            <p>$8</p>
+         <button onclick="addToCart('Pet Comb',8,'images/comb.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/ear cleaner.jpeg" alt="Ear Cleaner">
+            <h3>Pet Ear Cleaner</h3>
+            <p>$10</p>
+         <button onclick="addToCart('Pet Ear Cleaner',10,'images/ear cleaner.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/hoodies.jpeg" alt="Hoodies">
+            <h3>Fashionable Hoodies</h3>
+            <p>$20</p>
+         <button onclick="addToCart('Fashionable Hoodies',20,'images/hoodies.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/shampoo.jpeg" alt="Shampoo">
+            <h3>Pet Shampoo</h3>
+            <p>$12</p>
+         <button onclick="addToCart('Pet Shampoo',12,'images/shampoo.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/soap.jpeg" alt="Soap">
+            <h3>Pet Soap</h3>
+            <p>$10</p>
+         <button onclick="addToCart('Pet Soap',10,'images/soap.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="images/tshirt.jpeg" alt="T-Shirt">
+            <h3>Pet T-Shirt</h3>
+            <p>$15</p>
+         <button onclick="addToCart('Pet T-Shirt',15,'images/tshirt.jpeg')" class="cart-btn">Add to Cart</button>
+        </div>
+
+
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 PetCare Store | All Rights Reserved</p>
+</footer>
+
+<script>
+function addToCart(name, price, img) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.name === name);
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ name, price, img, quantity: 1 });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(name + ' added to cart');
+}
+</script>
+
+</body>
+</html>
